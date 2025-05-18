@@ -2,44 +2,62 @@ const venta = document.querySelector("#venta");
 const rowVenta = document.querySelector(".row");
 
 
+propiedades_venta.forEach( (venta, index) => {
 
+    if(index < 3) {
 
-for (let venta of propiedades_venta) {
-
-    rowVenta.innerHTML += `
+        rowVenta.innerHTML += `
     <div class="col-md-4 mb-4">
             <div class="card">
               <img
-                src="https://fotos.perfil.com/2018/09/21/trim/950/534/nueva-york-09212018-366965.jpg"
+                src="${venta.src}"
                 class="card-img-top"
                 alt="Imagen del departamento"
               />
               <div class="card-body">
                 <h5 class="card-title">
-                  Apartamento de lujo en zona exclusiva
+                  ${venta.nombre}
                 </h5>
                 <p class="card-text">
-                  Este apartamento de lujo está ubicado en una exclusiva zona
-                  residencial
+                  ${venta.descripcion}
                 </p>
                 <p>
-                  <i class="fas fa-map-marker-alt"></i> 123 Luxury Lane,
-                  Prestige Suburb, CA 45678
+                  <i class="fas fa-map-marker-alt"></i> ${venta.ubicacion}
                 </p>
                 <p>
-                  <i class="fas fa-bed"></i> 4 Habitaciones |
-                  <i class="fas fa-bath"></i> 4 Baños
+                  <i class="fas fa-bed"></i> ${venta.habitaciones} Habitaciones |
+                  <i class="fas fa-bath"></i> ${venta.banos} Baños
                 </p>
-                <p><i class="fas fa-dollar-sign"></i> 5.000</p>
-                <p class="text-danger">
-                  <i class="fas fa-smoking-ban"></i> No se permite fumar
+                <p><i class="fas fa-dollar-sign"></i> ${venta.costo} </p>
+                <p class="${venta.smoke ? "text-success" : "text-danger"}">
+
+                ${
+                    venta.smoke
+                        ? `<i class="fa-solid fa-check"></i> Se permite fumar`
+                        : `<i class="fa-solid fa-ban"></i> No se permite fumar`
+                }
                 </p>
-                <p class="text-danger">
-                  <i class="fa-solid fa-ban"></i> No se permiten mascotas
+
+                <p class="${venta.pets ? "text-success" : "text-danger"}">
+
+                ${
+                    venta.pets
+                        ? `<i class="fa-solid fa-check"></i> Se permiten mascotas`
+                        : `<i class="fa-solid fa-ban"></i> No se permiten mascotas`
+                }
                 </p>
+
               </div>
             </div>
           </div>
     `;
+    }
 
-}
+});
+
+propiedades_alquiler.forEach( (alquiler, index) => {
+
+
+
+    
+});
